@@ -16,6 +16,7 @@
 		CE55E9AC24DC81800032BE80 /* ChoicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55E9AB24DC81800032BE80 /* ChoicesTests.swift */; };
 		CE55E9B724DC81800032BE80 /* ChoicesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55E9B624DC81800032BE80 /* ChoicesUITests.swift */; };
 		CE55E9C924DCEC120032BE80 /* wordlist.csv in Resources */ = {isa = PBXBuildFile; fileRef = CE55E9C824DCEC120032BE80 /* wordlist.csv */; };
+		CE76B5E424DF2047006A10FE /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76B5E324DF2047006A10FE /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		CE55E9B624DC81800032BE80 /* ChoicesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicesUITests.swift; sourceTree = "<group>"; };
 		CE55E9B824DC81800032BE80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE55E9C824DCEC120032BE80 /* wordlist.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordlist.csv; sourceTree = "<group>"; };
+		CE76B5E324DF2047006A10FE /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				CE55E99824DC817E0032BE80 /* ViewController.swift */,
 				CE55E9C824DCEC120032BE80 /* wordlist.csv */,
 				CE55E99A24DC817E0032BE80 /* Main.storyboard */,
+				CE76B5E324DF2047006A10FE /* CollectionViewCell.swift */,
 				CE55E99D24DC81800032BE80 /* Assets.xcassets */,
 				CE55E99F24DC81800032BE80 /* LaunchScreen.storyboard */,
 				CE55E9A224DC81800032BE80 /* Info.plist */,
@@ -264,6 +267,7 @@
 			files = (
 				CE55E99924DC817E0032BE80 /* ViewController.swift in Sources */,
 				CE55E99524DC817E0032BE80 /* AppDelegate.swift in Sources */,
+				CE76B5E424DF2047006A10FE /* CollectionViewCell.swift in Sources */,
 				CE55E99724DC817E0032BE80 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

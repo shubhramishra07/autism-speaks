@@ -92,6 +92,6 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
         slideAddButton.isHidden = true
         slideSearchBar.isHidden = false
         slideDisplaySearch.isHidden = false
-        SlideViewController().reloadCV()
+        //SlideViewController().reloadCV()
     }
 }

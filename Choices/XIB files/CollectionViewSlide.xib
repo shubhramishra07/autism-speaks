@@ -41,6 +41,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Add"/>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oe8-b8-TfU">
+                        <rect key="frame" x="378" y="0.0" width="51" height="41"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Button" image="Cross.png"/>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -55,4 +60,7 @@
             <point key="canvasLocation" x="51.449275362318843" y="75"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="Cross.png" width="480" height="480"/>
+    </resources>
 </document>

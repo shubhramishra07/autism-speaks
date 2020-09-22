@@ -16,14 +16,27 @@ class SlideViewController: UIViewController {
         slideCollectionView.dataSource = self
         slideCollectionView.register(CollectionViewSlide.nib(), forCellWithReuseIdentifier: CollectionViewSlide.identifier)
         
-        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPressGesture(gesture:)))
-        slideCollectionView?.addGestureRecognizer(gesture)
+        //let gesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPressGesture(gesture:)))
+        //slideCollectionView?.addGestureRecognizer(gesture)
+        closeButton.isHidden = true
         
     }
-
+    @IBOutlet weak var nextButton: UIButton!
+    
+    @IBOutlet weak var previousButton: UIButton!
+    
+    @IBOutlet weak var yesNoButton: UIButton!
+    
+    @IBOutlet weak var saveButton: UIButton!
+    
+    @IBOutlet weak var closeButton: UIButton!
+    
     @IBOutlet weak var slideCollectionView: UICollectionView!
     
-    @objc func handleLongPressGesture(gesture: UILongPressGestureRecognizer) {
+    
+    
+
+    /*@objc func handleLongPressGesture(gesture: UILongPressGestureRecognizer) {
         guard let cv = slideCollectionView else {  return  }
         switch gesture.state {
         case .began:
@@ -53,7 +66,7 @@ class SlideViewController: UIViewController {
             }
             cv.beginInteractiveMovementForItem(at: targetIndexPath)
         }
-    }
+    }*/
 
 }
 
@@ -76,18 +89,20 @@ struct optionsList {
 
 extension SlideViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-        //return optionsList.options.count + 1
+        //return 3
+        return optionsList.options.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! CollectionViewSlide
+        cell.delegate = self
         cell.layer.borderWidth = 1.0
         cell.layer.borderColor = UIColor.black.cgColor
         cell.slideLabel.isHidden = true
         cell.slideImage.isHidden = true
         cell.slideSearchBar.isHidden = true
         cell.slideDisplaySearch.isHidden = true
+        cell.slideCloseButton.isHidden = true
         return cell
     }
     
@@ -105,19 +120,29 @@ extension SlideViewController: UICollectionViewDelegate, UICollectionViewDataSou
         print(optionsList.options)
     }
     
-    /*func collectionCiew(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) {
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        closeButton.isHidden = false
+        yesNoButton.isHidden = true
+        saveButton.isHidden = true
         
-    }*/
-    func reloadCV() {
-        //optionsList.add(word: "")
-        //let theIndex = IndexPath(row: optionsList.options.count, section: 0)
-      
-        slideCollectionView.reloadData() //app crashes here
-        
-        //slideCollectionView.insertItems(at: [theIndex])
+    }
+
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        closeButton.isHidden = true
+        saveButton.isHidden = false
+        yesNoButton.isHidden = false
+
     }
 }
 
-
-
-
+extension SlideViewController: CollectionViewSlideProtocol {
+    func btnAddClicked(from cell:CollectionViewSlide) {
+        if optionsList.options.count != slideCollectionView.numberOfItems(inSection: 0) {
+            optionsList.add(word: "")
+        }
+        if slideCollectionView.numberOfItems(inSection: 0) != 3 {
+            let ind = IndexPath(item:optionsList.options.count, section: 0)
+            self.slideCollectionView.insertItems(at: [ind])
+        }
+    }
+}

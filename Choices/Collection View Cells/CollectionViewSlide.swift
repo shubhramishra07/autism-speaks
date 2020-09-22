@@ -15,7 +15,6 @@ class CollectionViewSlide: UICollectionViewCell {
         slideDisplaySearch.delegate = self
         slideDisplaySearch.dataSource = self
         slideDisplaySearch.register(UITableViewCell.self, forCellReuseIdentifier: "tblcell")
-        
     }
     
     public func configure(image: UIImage) {
@@ -37,6 +36,10 @@ class CollectionViewSlide: UICollectionViewCell {
     @IBOutlet weak var slideDisplaySearch: UITableView!
     
     @IBOutlet weak var slideAddButton: UIButton!
+    
+    @IBOutlet weak var slideCloseButton: UIButton!
+    
+    weak var delegate: CollectionViewSlideProtocol?
     
     var userDictionary: [String:UIImage] = SavedData.userDictionary
     
@@ -77,12 +80,9 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
         slideDisplaySearch.isHidden = true
         slideLabel.text = currentCell.textLabel?.text
         slideImage.image = userDictionary[(currentCell.textLabel?.text)!]
+        slideCloseButton.isHidden = false
         if let word = currentCell.textLabel?.text {
-            if optionsList.options.count == 0 {
-                optionsList.add(word: word)
-            } else {
-                optionsList.add(word:word)
-            }
+            optionsList.add(word: word)
         }
         print(optionsList.options)
     }
@@ -92,6 +92,35 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
         slideAddButton.isHidden = true
         slideSearchBar.isHidden = false
         slideDisplaySearch.isHidden = false
-        //SlideViewController().reloadCV()
+        if optionsList.options.count == 0 {
+            optionsList.add(word: "")
+        }
+        self.delegate?.btnAddClicked(from: self)
+    }
+    
+    /*func hideCross {
+        slideCloseButton.isHidden = true
+    }
+    
+    func showCross {
+        slideCloseButton.isHidden = false
+    }*/
+    
+    //pressing the cross button
+    @IBAction func pressCloseButton(_ sender: Any) {
+        slideCloseButton.isHidden = true
+        slideSearchBar.isHidden = false
+        slideDisplaySearch.isHidden = false
+        slideImage.isHidden = true
+        slideLabel.isHidden = true
+        if let word = slideLabel.text {
+            guard let ind = optionsList.options.firstIndex(of: word) else { return }
+            optionsList.remove(at: ind)
+        }
     }
 }
+
+protocol CollectionViewSlideProtocol: class {
+    func btnAddClicked(from cell: CollectionViewSlide)
+}
+

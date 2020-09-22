@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
         // Input the data into the array completeDictionary from the csv file
         for n in 1...65 {
             completeDictionary.append(getdata(r: n, c: 0))
@@ -82,10 +83,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var dictionaryCollectionView: UICollectionView!
         
     //button that takes us from the main viewcontroller to the slide page
+
     @IBOutlet weak var slidesButton: UIButton!
+    
+    @IBOutlet weak var settingsButton: UIButton!
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscapeLeft
+    }
+  
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return .landscapeLeft
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }
 
 extension ViewController: UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == displaysearch { //when we ware viewing the add word table

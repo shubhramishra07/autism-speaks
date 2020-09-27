@@ -39,6 +39,8 @@ class CollectionViewSlide: UICollectionViewCell {
     
     @IBOutlet weak var slideCloseButton: UIButton!
     
+    var posChange:Int = 0
+    
     weak var delegate: CollectionViewSlideProtocol?
     
     var userDictionary: [String:UIImage] = SavedData.userDictionary
@@ -55,7 +57,6 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
         filteredData = leftDictionary.filter{ $0.lowercased().starts(with: searchText.lowercased()) }
         filteredData.sort()
         slideDisplaySearch.reloadData()
-        
     }
     
     //viewing searches
@@ -92,9 +93,6 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
         slideAddButton.isHidden = true
         slideSearchBar.isHidden = false
         slideDisplaySearch.isHidden = false
-        if optionsList.options.count == 0 {
-            optionsList.add(word: "")
-        }
         self.delegate?.btnAddClicked(from: self)
     }
     
@@ -116,11 +114,17 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
         if let word = slideLabel.text {
             guard let ind = optionsList.options.firstIndex(of: word) else { return }
             optionsList.remove(at: ind)
+            posChange = ind
         }
+        
     }
 }
 
 protocol CollectionViewSlideProtocol: class {
     func btnAddClicked(from cell: CollectionViewSlide)
+}
+
+protocol PositionProtocol: class {
+    func pos(from cell: CollectionViewSlide)
 }
 

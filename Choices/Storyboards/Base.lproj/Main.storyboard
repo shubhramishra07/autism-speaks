@@ -170,9 +170,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="qbv-kW-Xg5">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="Gjy-7g-hhD"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="qbv-kW-Xg5"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addbutton" destination="iww-DN-xjj" id="rsi-VM-sry"/>
@@ -239,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYO-42-fOU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1324.8046875" y="79.6875"/>
+            <point key="canvasLocation" x="1493" y="80"/>
         </scene>
         <!--Yes No View Controller-->
         <scene sceneID="Phb-ab-Zsj">
@@ -269,9 +267,6 @@
                                 <rect key="frame" x="874" y="646" width="71" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Previous" image="Left Arrow.png"/>
-                                <connections>
-                                    <segue destination="LNS-QZ-Vr2" kind="show" id="54R-DL-iEw"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ja-BE-qek">
                                 <rect key="frame" x="953" y="646" width="71" height="72"/>
@@ -380,6 +375,9 @@
                                 <rect key="frame" x="874" y="646" width="71" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Previous" image="Left Arrow.png"/>
+                                <connections>
+                                    <action selector="previousButtonClicked:" destination="LNS-QZ-Vr2" eventType="touchUpInside" id="wBP-MW-HHn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCV-HY-A9w">
                                 <rect key="frame" x="779" y="665" width="78" height="40"/>
@@ -398,6 +396,9 @@
                                 <rect key="frame" x="953" y="646" width="71" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next" image="Right Arrow.png"/>
+                                <connections>
+                                    <action selector="nextButtonClicked:" destination="LNS-QZ-Vr2" eventType="touchUpInside" id="af1-Pv-Nq9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEU-41-FfC">
                                 <rect key="frame" x="934" y="61" width="90" height="85"/>
@@ -407,18 +408,8 @@
                                     <action selector="closeButtonPressed:" destination="LNS-QZ-Vr2" eventType="touchUpInside" id="hIU-NJ-llG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEd-RB-hV9">
-                                <rect key="frame" x="623" y="663" width="157" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Yes/No Slide">
-                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
-                                    <color key="titleShadowColor" name="AccentColor"/>
-                                    <imageReference key="backgroundImage" image="rectangle.fill" catalog="system" renderingMode="original"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpy-Cu-y4e">
-                                <rect key="frame" x="623" y="663" width="157" height="43"/>
+                                <rect key="frame" x="614" y="661" width="157" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Yes/No Slide">
@@ -427,7 +418,7 @@
                                     <imageReference key="backgroundImage" image="rectangle.fill" catalog="system" renderingMode="original"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zuu-R2-1wU" kind="show" id="T1k-7g-BDQ"/>
+                                    <segue destination="zuu-R2-1wU" kind="show" id="LKr-xk-XZ5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -446,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odK-mY-nBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="485.74218749999994" y="1163.28125"/>
+            <point key="canvasLocation" x="509" y="1163"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gA2-oG-uAf">
@@ -467,9 +458,6 @@
             <point key="canvasLocation" x="-215.0390625" y="79.6875"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="wjf-I9-MGf"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Cross.png" width="480" height="480"/>
         <image name="Left Arrow.png" width="480" height="480"/>

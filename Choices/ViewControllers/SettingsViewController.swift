@@ -14,6 +14,7 @@ class SettingsViewController: UIViewController {
         
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
+        self.navigationItem.hidesBackButton = true
         
     }
     

@@ -43,6 +43,8 @@ class CollectionViewSlide: UICollectionViewCell {
     
     weak var delegate: CollectionViewSlideProtocol?
     
+    weak var delegate1: PositionProtocol?
+    
     var userDictionary: [String:UIImage] = SavedData.userDictionary
     
     var filteredData = Array(SavedData.userDictionary.keys) //what shows up when the user searches
@@ -82,10 +84,14 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
         slideLabel.text = currentCell.textLabel?.text
         slideImage.image = userDictionary[(currentCell.textLabel?.text)!]
         slideCloseButton.isHidden = false
+        //PositionProtocol.pos(from: self)
         if let word = currentCell.textLabel?.text {
-            optionsList.add(word: word)
+                //optionsList.add(word: word)
+            let r = self.delegate1?.row(from: self)
+            if let a = r {
+                optionsList.options[a] = word
+            }
         }
-        print(optionsList.options)
     }
     
     //pressing the add slide button
@@ -113,10 +119,9 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
         slideLabel.isHidden = true
         if let word = slideLabel.text {
             guard let ind = optionsList.options.firstIndex(of: word) else { return }
-            optionsList.remove(at: ind)
+            optionsList.options[ind] = ""
             posChange = ind
         }
-        
     }
 }
 
@@ -125,6 +130,8 @@ protocol CollectionViewSlideProtocol: class {
 }
 
 protocol PositionProtocol: class {
-    func pos(from cell: CollectionViewSlide)
+    func pos(from cell: CollectionViewSlide) -> IndexPath
+    func row(from cell: CollectionViewSlide) -> Int
+    var ind: IndexPath{ get set }
 }
 

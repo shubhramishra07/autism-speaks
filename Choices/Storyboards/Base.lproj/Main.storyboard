@@ -53,20 +53,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iww-DN-xjj">
-                                <rect key="frame" x="232" y="405" width="30" height="30"/>
+                                <rect key="frame" x="145" y="396" width="198" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Add"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Add Words">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                    <color key="titleShadowColor" name="AccentColor"/>
+                                    <imageReference key="backgroundImage" image="rectangle.fill" catalog="system" renderingMode="original"/>
+                                </state>
                                 <connections>
                                     <action selector="addButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S84-Wd-SQA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvW-UH-xUH">
-                                <rect key="frame" x="694" y="400" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Remove"/>
-                                <connections>
-                                    <action selector="removeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fee-vZ-eHY"/>
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RLb-gR-aYW">
@@ -149,20 +145,17 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Tnf-GB-a1c"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SN-kh-Znn">
-                                <rect key="frame" x="941" y="470" width="42" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvW-UH-xUH">
+                                <rect key="frame" x="622" y="396" width="198" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Slides"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Remove Words">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                    <color key="titleShadowColor" name="AccentColor"/>
+                                    <imageReference key="backgroundImage" image="rectangle.fill" catalog="system" renderingMode="original"/>
+                                </state>
                                 <connections>
-                                    <segue destination="LNS-QZ-Vr2" kind="show" id="wjf-I9-MGf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ro2-Vg-HL1">
-                                <rect key="frame" x="936" y="508" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="WC9-RU-esx" kind="show" id="nJP-Dy-zYo"/>
+                                    <action selector="removeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fee-vZ-eHY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -170,7 +163,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="qbv-kW-Xg5"/>
+                    <navigationItem key="navigationItem" id="qbv-kW-Xg5">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Settings" id="jve-x5-NnA">
+                                <connections>
+                                    <segue destination="WC9-RU-esx" kind="show" id="Trj-yA-08w"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Slides" id="K4K-FR-TXf">
+                                <connections>
+                                    <segue destination="LNS-QZ-Vr2" kind="show" id="5jo-Qr-AgC"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addbutton" destination="iww-DN-xjj" id="rsi-VM-sry"/>
@@ -182,8 +188,6 @@
                         <outlet property="removebutton" destination="DvW-UH-xUH" id="5h1-PN-opU"/>
                         <outlet property="searchbar" destination="iqv-Ex-NsN" id="uMY-DE-ETT"/>
                         <outlet property="searchbar1" destination="RLb-gR-aYW" id="Z78-SQ-dtt"/>
-                        <outlet property="settingsButton" destination="ro2-Vg-HL1" id="lme-7D-2m1"/>
-                        <outlet property="slidesButton" destination="1SN-kh-Znn" id="MBG-Nt-G6l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -230,7 +234,16 @@
                         <viewLayoutGuide key="safeArea" id="MhX-HB-muw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Xak-nO-quU"/>
+                    <navigationItem key="navigationItem" id="Xak-nO-quU">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Dictionary" id="rg6-sW-6TF"/>
+                            <barButtonItem title="Slides" id="JFW-f9-W0j">
+                                <connections>
+                                    <segue destination="LNS-QZ-Vr2" kind="show" id="5A5-by-4eE"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="settingsTableView" destination="qS0-Mq-OXb" id="YM7-Tg-UKP"/>
                     </connections>
@@ -425,7 +438,12 @@
                         <viewLayoutGuide key="safeArea" id="9Gj-ve-3ZN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fFf-5l-QHt"/>
+                    <navigationItem key="navigationItem" id="fFf-5l-QHt">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Dictionary" id="Dhw-h6-rlM"/>
+                            <barButtonItem title="Settings" id="0hL-qo-3zx"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="closeButton" destination="aEU-41-FfC" id="gS4-9M-a5R"/>
                         <outlet property="nextButton" destination="Q2S-50-dFt" id="tKf-qs-tBz"/>
@@ -458,6 +476,9 @@
             <point key="canvasLocation" x="-215.0390625" y="79.6875"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5jo-Qr-AgC"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Cross.png" width="480" height="480"/>
         <image name="Left Arrow.png" width="480" height="480"/>

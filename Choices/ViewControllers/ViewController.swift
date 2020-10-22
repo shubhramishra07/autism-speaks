@@ -174,8 +174,6 @@ extension ViewController: UISearchBarDelegate, UITableViewDelegate, UITableViewD
                 //userDictionary.sort()
                 let index = leftDictionary.firstIndex(of: selectedText)!
                 leftDictionary.remove(at: index)
-                print(leftDictionary)
-                print(SavedData.sorted())
                 tableView.reloadData()
                 dictionaryCollectionView.reloadData()
             }
@@ -187,11 +185,8 @@ extension ViewController: UISearchBarDelegate, UITableViewDelegate, UITableViewD
             //let index = userDictionary.firstIndex(of: selectedText)!
             //userDictionary.remove(at: index)
             SavedData.removeW(word: selectedText)
-            print(SavedData.userDictionary)
             leftDictionary.append(currentCell.textLabel!.text!)
             leftDictionary.sort()
-            print(leftDictionary)
-            print(Array(SavedData.userDictionary.keys))
             tableView.reloadData()
             dictionaryCollectionView.reloadData()
         }

@@ -37,6 +37,8 @@ class SlideViewController: UIViewController {
     
     var list:[String]?
     
+    var currentPos:Int = 0
+    
 
     /*@objc func handleLongPressGesture(gesture: UILongPressGestureRecognizer) {
         guard let cv = slideCollectionView else {  return  }
@@ -73,6 +75,7 @@ class SlideViewController: UIViewController {
         closeButton.isHidden = false
         yesNoButton.isHidden = true
         saveButton.isHidden = true
+        slideCollectionView.reloadData()
     }
 
     @IBAction func closeButtonPressed(_ sender: Any) {
@@ -80,34 +83,47 @@ class SlideViewController: UIViewController {
         saveButton.isHidden = false
         yesNoButton.isHidden = false
     }
+    
     @IBAction func nextButtonClicked(_ sender: Any) {
-        let arr = optionsList.options
-        let total = optionsList.listOfSlides.count
-        optionsList.listOfSlides[total] = arr
-        optionsList.options.removeAll()
-        self.list = nil
-        slideCollectionView.reloadData()
+        currentPos += 1
+        if(currentPos <= optionsList.listOfSlides.count - 1) {
+            if let arr = optionsList.listOfSlides[currentPos] {
+                optionsList.options = arr
+                print("arr is: \(arr)")
+            }
+            slideCollectionView.reloadData()
+            slideCollectionView.scrollToItem(at: IndexPath(item: currentPos, section: 0), at: UICollectionView.ScrollPosition.right, animated: true)
+        }
+        else {
+            let arr = optionsList.options
+            let total = optionsList.listOfSlides.count
+            optionsList.listOfSlides[total] = arr
+            optionsList.reset()
+            self.list = nil
+            slideCollectionView.reloadData()
+        }
         print(optionsList.listOfSlides)
+        
      }
     
     @IBAction func previousButtonClicked(_ sender: Any) {
-        let arr = optionsList.options
-        let total = optionsList.listOfSlides.count
-        optionsList.listOfSlides[total] = arr
+        optionsList.listOfSlides[currentPos] = optionsList.options
+        currentPos -= 1
+        let total = currentPos
         optionsList.options.removeAll()
-        slideCollectionView.reloadData()
-        let los = optionsList.listOfSlides[total-1]
+        let los = optionsList.listOfSlides[total]
         if let listOfSlides = los {
             optionsList.options = listOfSlides
             self.list = listOfSlides
         }
         slideCollectionView.reloadData()
+        print(optionsList.listOfSlides)
     }
     
 }
 
 struct optionsList {
-    static var options:[String] = []
+    static var options:[String] = [""]
     
     static var listOfSlides:[Int: [String]] = [:]
     
@@ -121,57 +137,64 @@ struct optionsList {
     
     static func remove(at: Int) {
         options.remove(at: at)
-        print(options)
     }
     
     static func reset() {
-        options = []
+        options = [""]
     }
     
-    static func presentInfo(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    /*static func presentInfo(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! CollectionViewSlide
         cell.slideLabel.text = optionsList.options[indexPath.item]
         if let str = cell.slideLabel.text {
             cell.slideImage.image = SavedData.getImage(word: str)
         }
         return cell
-    }
+    }*/
 }
 
 
 extension SlideViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return optionsList.options.count + 1
+        /*if self.list == nil {
+            return optionsList.options.count + 1
+        }
+        else {
+            return optionsList.options.count
+        }*/
+        return optionsList.options.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! CollectionViewSlide
+        cell.delegate = self
+        cell.delegate1 = self
+        cell.layer.borderWidth = 1.0
+        cell.layer.borderColor = UIColor.black.cgColor
+        //cell.slideCloseButton.isHidden = self.saveButton.isHidden ? true : false
+        cell.slideDisplaySearch.reloadData()
+        
         if self.list == nil {
-            cell.delegate = self
-            cell.layer.borderWidth = 1.0
-            cell.layer.borderColor = UIColor.black.cgColor
             cell.slideLabel.isHidden = true
-            
             cell.slideImage.isHidden = true
             cell.slideSearchBar.isHidden = true
             cell.slideDisplaySearch.isHidden = true
-            cell.slideCloseButton.isHidden = true
             cell.slideAddButton.isHidden = false
-            let ind = indexPath
-            print(ind)
+            cell.slideCloseButton.isHidden = true
             return cell
         }
+        
         else {
-            cell.delegate = self
-            cell.layer.borderWidth = 1.0
-            cell.layer.borderColor = UIColor.black.cgColor
             cell.slideLabel.isHidden = false
             cell.slideLabel.text = list?[indexPath.item]
             cell.slideImage.isHidden = false
-            cell.slideSearchBar.isHidden = false
-            cell.slideDisplaySearch.isHidden = false
-            cell.slideCloseButton.isHidden = false
+            if let w = list?[indexPath.item] {
+                cell.slideImage.image = SavedData.getImage(word: w)
+            }
+            cell.slideSearchBar.isHidden = true
+            cell.slideDisplaySearch.isHidden = true
             cell.slideAddButton.isHidden = true
+            cell.slideCloseButton.isHidden = false
             return cell
         }
         //if self.list == nil => hide, else => don't hide
@@ -188,7 +211,6 @@ extension SlideViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let item = optionsList.options.remove(at: sourceIndexPath.item)
         optionsList.options.insert(item, at: destinationIndexPath.item)
-        print(optionsList.options)
     }
     
     
@@ -196,19 +218,39 @@ extension SlideViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
 extension SlideViewController: CollectionViewSlideProtocol {
     func btnAddClicked(from cell:CollectionViewSlide) {
-        if optionsList.options.count == 0 {
-            optionsList.add(word: "")
-        }
+        
         //!= slideCollectionView.numberOfItems(inSection: 0)
         if slideCollectionView.numberOfItems(inSection: 0) != 3 {
-            let ind = IndexPath(item:optionsList.options.count, section: 0)
+            optionsList.add(word: "")
+            let ind = IndexPath(item:optionsList.options.count-1, section: 0)
             self.slideCollectionView.insertItems(at: [ind])
+            
         }
     }
 }
 
 extension SlideViewController: PositionProtocol {
-    func pos(from cell: CollectionViewSlide) {
-        
+    var ind: IndexPath {
+        get {
+            return IndexPath(row: 0, section: 0)
+        }
+        set {
+            
+        }
+    }
+    
+    func pos(from cell: CollectionViewSlide) -> IndexPath{
+        if let i = self.slideCollectionView.indexPath(for:cell) {
+            ind = i
+        }
+        return ind
+    }
+    
+    func row(from cell: CollectionViewSlide) -> Int{
+        var i:Int = 0
+        if let r = self.slideCollectionView.indexPath(for: cell)?.row{
+            i = Int(r)
+        }
+        return i
     }
 }

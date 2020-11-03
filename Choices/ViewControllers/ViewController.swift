@@ -22,14 +22,14 @@ class ViewController: UIViewController {
     //viewDidLoad function
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
         UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
-        // Input the data into the array completeDictionary from the csv file
+        // Inputs the data into the array completeDictionary from the csv file
+        
         for n in 1...65 {
             completeDictionary.append(getdata(r: n, c: 0))
             leftDictionary.append(getdata(r: n, c: 0))
         }
+        
         leftDictionary.sort()
         
         //searchbar
@@ -48,11 +48,12 @@ class ViewController: UIViewController {
         dictionaryCollectionView.delegate = self
         dictionaryCollectionView.dataSource = self
         dictionaryCollectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
     }
     
     //search bar on the add side
@@ -63,9 +64,6 @@ class ViewController: UIViewController {
     
     //button on the add side
     @IBOutlet weak var addbutton: UIButton!
-    
-    //image on the add side
-    @IBOutlet weak var linkimage: UIImageView!
 
     //button on the remove side
     @IBOutlet weak var removebutton: UIButton!
@@ -75,18 +73,21 @@ class ViewController: UIViewController {
     
     //table view on the remove side
     @IBOutlet weak var displaysearch1: UITableView!
-
-    //image on the remove side
-    @IBOutlet weak var linkimage1: UIImageView!
         
     //collection view on the dictionary page
     @IBOutlet weak var dictionaryCollectionView: UICollectionView!
         
     //button that takes us from the main viewcontroller to the slide page
 
-    @IBOutlet weak var slidesButton: UIButton!
+    @IBOutlet weak var slidesButton: UIBarButtonItem!
     
-    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
+    
+    @IBOutlet weak var removeAllButton: UIButton!
+    
+    @IBOutlet weak var addAllButton: UIButton!
+    
+    @IBOutlet weak var addNewWordButton: UIButton!
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscapeLeft
@@ -164,14 +165,7 @@ extension ViewController: UISearchBarDelegate, UITableViewDelegate, UITableViewD
             if currentCell.textLabel!.text != nil {
                 let selectedText = currentCell.textLabel!.text!
                 let myRow = completeDictionary.firstIndex(of: selectedText)!+1
-                linkimage.image = getImage(row: myRow)
-                //arrImage.append((getImage(row:myRow), currentCell.textLabel!.text!))
-                
-                //arrayTest[selectedText] = getImage(row: myRow)
-                // userArr.append(selectedText, getImage(row: myRow))
                 SavedData.userDictionary[selectedText] = getImage(row: myRow)
-                //userDictionary.append(currentCell.textLabel!.text!)
-                //userDictionary.sort()
                 let index = leftDictionary.firstIndex(of: selectedText)!
                 leftDictionary.remove(at: index)
                 tableView.reloadData()
@@ -181,9 +175,6 @@ extension ViewController: UISearchBarDelegate, UITableViewDelegate, UITableViewD
         else {
             let selectedText = currentCell.textLabel!.text!
             let myRow = completeDictionary.firstIndex(of: selectedText)!+1
-            linkimage1.image = getImage(row: myRow)
-            //let index = userDictionary.firstIndex(of: selectedText)!
-            //userDictionary.remove(at: index)
             SavedData.removeW(word: selectedText)
             leftDictionary.append(currentCell.textLabel!.text!)
             leftDictionary.sort()
@@ -256,6 +247,26 @@ extension ViewController: UISearchBarDelegate, UITableViewDelegate, UITableViewD
         searching = false
         displaysearch1.reloadData()
     }
+    
+    /*@IBAction func removeAllButtonPressed(_ sender: Any) {
+        SavedData.userDictionary = [:]
+        dictionaryCollectionView.reloadData()
+    }
+    
+    @IBAction func addAllButtonPressed(_ sender: Any) {
+        for i in completeDictionary {
+            SavedData.userDictionary[i] = getImage(row: completeDictionary.firstIndex(of: i)!+1)
+        }
+        dictionaryCollectionView.reloadData()
+    }*/
+    
+    //adding a new word to the userdictionary
+    @IBAction func addNewWordPressed(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(identifier: "newwordvc") as! NewWordViewController
+        vc.delegate = self
+        self.present(vc, animated: true)
+    }
+    
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -268,11 +279,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.gray.cgColor
         if Array(SavedData.userDictionary.keys) != [] {
-            
-            /*let myRow = completeDictionary.firstIndex(of: Array(userArr.keys)[indexPath.item])! + 1
-            cell.configure(image: getImage(row: myRow))
-            //cell.dictionaryImage.image = arrImage[indexPath.row]
-            //cell.dictionaryImage.image = arrayTest[userDictionary[indexPath.item]]*/
             cell.dictionaryLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 15)
             cell.dictionaryLabel.text = SavedData.sorted()[indexPath.item]
             if let str = cell.dictionaryLabel.text {
@@ -337,10 +343,6 @@ extension ViewController {
         let url = URL(string: self.getdata(r:row, c:2))!
         let data1 = try? Data(contentsOf: url)
         let image = UIImage(data:data1!)
-        /*notes from meeting: download picture to the device
-            check if image exists, if yes, do nothing
-            if not, download
-         file manager = allows you to access the file system*/
         return image!
     }
 }
@@ -366,4 +368,12 @@ struct SavedData {
         let sorted = Array(userDictionary.keys).sorted(by: <)
         return sorted
     }
+}
+
+extension ViewController: NewWordProtocol {
+    
+    func reloadDictionary() {
+        dictionaryCollectionView.reloadData()
+    }
+    
 }

@@ -39,6 +39,8 @@ class CollectionViewSlide: UICollectionViewCell {
     
     @IBOutlet weak var slideCloseButton: UIButton!
     
+    @IBOutlet weak var slideSegmentedControl: UISegmentedControl!
+    
     var posChange:Int = 0
     
     weak var delegate: CollectionViewSlideProtocol?
@@ -81,6 +83,7 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
         slideImage.isHidden = false
         slideSearchBar.isHidden = true
         slideDisplaySearch.isHidden = true
+        slideSegmentedControl.isHidden = false
         slideLabel.text = currentCell.textLabel?.text
         slideImage.image = userDictionary[(currentCell.textLabel?.text)!]
         slideCloseButton.isHidden = false
@@ -92,6 +95,7 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
                 optionsList.options[a] = word
             }
         }
+        optionsList.listOfSlides[optionsList.currentPos] = optionsList.options
     }
     
     //pressing the add slide button
@@ -117,12 +121,17 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
         slideDisplaySearch.isHidden = false
         slideImage.isHidden = true
         slideLabel.isHidden = true
+        slideSegmentedControl.isHidden = true
         if let word = slideLabel.text {
             guard let ind = optionsList.options.firstIndex(of: word) else { return }
-            optionsList.options[ind] = ""
+            if let r = self.delegate1?.row(from: self) {
+                optionsList.options[r] = ""
+            }
             posChange = ind
         }
     }
+    
+
 }
 
 protocol CollectionViewSlideProtocol: class {

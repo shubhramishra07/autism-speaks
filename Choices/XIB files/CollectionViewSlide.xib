@@ -7,9 +7,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CollectionViewSlide" customModule="Choices" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="slidecell" id="gTV-IL-0wX" customClass="CollectionViewSlide" customModule="Choices" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="slidecell" reuseIdentifier="CollectionViewSlide" id="gTV-IL-0wX" customClass="CollectionViewSlide" customModule="Choices" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="429" height="236"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -46,16 +46,26 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Button" image="Cross.png"/>
                     </button>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LCJ-lN-28D">
+                        <rect key="frame" x="50" y="186" width="131" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <segments>
+                            <segment title="First"/>
+                            <segment title="Second"/>
+                        </segments>
+                    </segmentedControl>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="429" height="236"/>
             <connections>
-                <outlet property="addSlideButton" destination="NIH-K6-cod" id="uJW-tX-TNi"/>
+                <outlet property="slideAddButton" destination="NIH-K6-cod" id="hEr-ga-noR"/>
+                <outlet property="slideCloseButton" destination="oe8-b8-TfU" id="O5g-1K-IhI"/>
                 <outlet property="slideDisplaySearch" destination="bhL-fD-1lo" id="60g-S4-vWh"/>
                 <outlet property="slideImage" destination="rcO-1N-emy" id="Z8O-Yq-Vvl"/>
                 <outlet property="slideLabel" destination="AJ6-vN-CFc" id="pxw-xX-JxR"/>
-                <outlet property="slideSearch" destination="i5j-Cc-QbG" id="nTW-1x-VTR"/>
+                <outlet property="slideSearchBar" destination="i5j-Cc-QbG" id="zSE-u3-KXq"/>
+                <outlet property="slideSegmentedControl" destination="LCJ-lN-28D" id="1IR-cg-tVl"/>
             </connections>
             <point key="canvasLocation" x="51.449275362318843" y="75"/>
         </collectionViewCell>

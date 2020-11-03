@@ -11,6 +11,64 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--New Word View Controller-->
+        <scene sceneID="6z2-n2-Hpl">
+            <objects>
+                <viewController storyboardIdentifier="newwordvc" id="fe5-M5-tnm" customClass="NewWordViewController" customModule="Choices" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="akv-LH-v1x">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the new word" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xd6-VO-KGK">
+                                <rect key="frame" x="200" y="150" width="624" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcw-32-Xh4">
+                                <rect key="frame" x="300" y="334" width="424" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Add Word"/>
+                                <connections>
+                                    <action selector="addWordButtonPressed:" destination="fe5-M5-tnm" eventType="touchUpInside" id="Esl-uE-Ma0"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2O-kl-9VB">
+                                <rect key="frame" x="232" y="479" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rf2-o8-3VY">
+                                <rect key="frame" x="288" y="382" width="129" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Pick Image"/>
+                                <connections>
+                                    <action selector="addImageButtonPressed:" destination="fe5-M5-tnm" eventType="touchUpInside" id="Ixf-dp-z2S"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6qf-3H-YEY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Lcw-32-Xh4" firstAttribute="leading" secondItem="6qf-3H-YEY" secondAttribute="leading" constant="300" id="1eu-fN-oIp"/>
+                            <constraint firstItem="Xd6-VO-KGK" firstAttribute="leading" secondItem="6qf-3H-YEY" secondAttribute="leading" constant="200" id="5px-au-ceb"/>
+                            <constraint firstItem="6qf-3H-YEY" firstAttribute="trailing" secondItem="Xd6-VO-KGK" secondAttribute="trailing" constant="200" id="77K-Sg-kRk"/>
+                            <constraint firstItem="Xd6-VO-KGK" firstAttribute="top" secondItem="6qf-3H-YEY" secondAttribute="top" constant="150" id="JTE-41-6UJ"/>
+                            <constraint firstItem="Xd6-VO-KGK" firstAttribute="leading" secondItem="6qf-3H-YEY" secondAttribute="leading" constant="200" id="UA6-xi-RUF"/>
+                            <constraint firstItem="6qf-3H-YEY" firstAttribute="trailing" secondItem="Lcw-32-Xh4" secondAttribute="trailing" constant="300" id="uSx-5g-2Vi"/>
+                            <constraint firstItem="Lcw-32-Xh4" firstAttribute="top" secondItem="Xd6-VO-KGK" secondAttribute="bottom" constant="150" id="wpV-0Y-L0U"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addImageButton" destination="rf2-o8-3VY" id="quE-Vh-9oa"/>
+                        <outlet property="addNewWordButton" destination="Lcw-32-Xh4" id="OkD-4g-xMq"/>
+                        <outlet property="newWordInput" destination="Xd6-VO-KGK" id="UnO-g6-LED"/>
+                        <outlet property="pickedImage" destination="i2O-kl-9VB" id="QnI-dc-JkC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eZG-3f-CAh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="508.59374999999994" y="-674.21875"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -48,10 +106,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lo2-vW-8Ft">
-                                <rect key="frame" x="197" y="688" width="95" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iww-DN-xjj">
                                 <rect key="frame" x="145" y="396" width="198" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -65,13 +119,26 @@
                                     <action selector="addButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S84-Wd-SQA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvU-SU-fG0">
+                                <rect key="frame" x="145" y="686" width="198" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Add All Words">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                    <color key="titleShadowColor" name="AccentColor"/>
+                                    <imageReference key="backgroundImage" image="rectangle.fill" catalog="system" renderingMode="original"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAllButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oGZ-H4-aEU"/>
+                                </connections>
+                            </button>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RLb-gR-aYW">
-                                <rect key="frame" x="562" y="456" width="318" height="44"/>
+                                <rect key="frame" x="622" y="456" width="318" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bse-Oc-2xV">
-                                <rect key="frame" x="562" y="500" width="318" height="166"/>
+                                <rect key="frame" x="622" y="500" width="318" height="166"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -97,10 +164,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="MSI-Xg-Z1r"/>
                                 </connections>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJ9-jd-6Ye">
-                                <rect key="frame" x="675" y="688" width="93" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B63-3I-F6R">
                                 <rect key="frame" x="0.0" y="97" width="1024" height="246"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -146,7 +209,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvW-UH-xUH">
-                                <rect key="frame" x="622" y="396" width="198" height="29"/>
+                                <rect key="frame" x="682" y="396" width="198" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Remove Words">
@@ -156,6 +219,33 @@
                                 </state>
                                 <connections>
                                     <action selector="removeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fee-vZ-eHY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu4-eH-6cY">
+                                <rect key="frame" x="676" y="688" width="211" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Remove All Words">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                    <color key="titleShadowColor" name="AccentColor"/>
+                                    <imageReference key="backgroundImage" image="rectangle.fill" catalog="system" renderingMode="original"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeAllButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rM9-2z-Pf1"/>
+                                    <action selector="removeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hxQ-eO-QCp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INb-O9-2ga">
+                                <rect key="frame" x="145" y="425" width="198" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Add a New Word">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                    <color key="titleShadowColor" name="AccentColor"/>
+                                    <imageReference key="backgroundImage" image="rectangle.fill" catalog="system" renderingMode="original"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewWordPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qvk-eE-UdB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -179,15 +269,18 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addAllButton" destination="uvU-SU-fG0" id="PHN-5D-E3U"/>
+                        <outlet property="addNewWordButton" destination="INb-O9-2ga" id="BgO-8T-DMS"/>
                         <outlet property="addbutton" destination="iww-DN-xjj" id="rsi-VM-sry"/>
                         <outlet property="dictionaryCollectionView" destination="B63-3I-F6R" id="x3W-4a-UxT"/>
                         <outlet property="displaysearch" destination="FSJ-5g-udm" id="uV9-zw-Dy2"/>
                         <outlet property="displaysearch1" destination="bse-Oc-2xV" id="ggR-74-OZg"/>
-                        <outlet property="linkimage" destination="lo2-vW-8Ft" id="uNh-Vl-1cR"/>
-                        <outlet property="linkimage1" destination="iJ9-jd-6Ye" id="NUR-uC-RSq"/>
+                        <outlet property="removeAllButton" destination="gu4-eH-6cY" id="lzb-Ye-KmD"/>
                         <outlet property="removebutton" destination="DvW-UH-xUH" id="5h1-PN-opU"/>
                         <outlet property="searchbar" destination="iqv-Ex-NsN" id="uMY-DE-ETT"/>
                         <outlet property="searchbar1" destination="RLb-gR-aYW" id="Z78-SQ-dtt"/>
+                        <outlet property="settingsButton" destination="jve-x5-NnA" id="ceD-gM-LUx"/>
+                        <outlet property="slidesButton" destination="K4K-FR-TXf" id="19t-d2-yhE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -235,14 +328,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xak-nO-quU">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Dictionary" id="rg6-sW-6TF"/>
-                            <barButtonItem title="Slides" id="JFW-f9-W0j">
-                                <connections>
-                                    <segue destination="LNS-QZ-Vr2" kind="show" id="5A5-by-4eE"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Dictionary" id="rg6-sW-6TF">
+                            <connections>
+                                <action selector="dictionaryButtonPressed:" destination="WC9-RU-esx" id="eol-iT-4CA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="settingsTableView" destination="qS0-Mq-OXb" id="YM7-Tg-UKP"/>
@@ -342,14 +432,10 @@
                                                         </tableViewCell>
                                                     </prototypes>
                                                 </tableView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0QT-6s-vmL">
-                                                    <rect key="frame" x="24" y="26" width="263" height="134"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sjv-fA-cK2">
-                                                    <rect key="frame" x="15" y="186" width="281" height="23"/>
+                                                    <rect key="frame" x="15" y="119" width="281" height="90"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -370,6 +456,18 @@
                                                         <action selector="pressCloseButton:" destination="WYD-LW-clA" eventType="touchUpInside" id="xEt-HF-T4C"/>
                                                     </connections>
                                                 </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0QT-6s-vmL">
+                                                    <rect key="frame" x="73" y="26" width="164" height="98"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3V8-Tc-0G6">
+                                                    <rect key="frame" x="94" y="191" width="133" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="Wrong"/>
+                                                        <segment title="Correct"/>
+                                                    </segments>
+                                                </segmentedControl>
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="320" height="225"/>
@@ -380,6 +478,7 @@
                                             <outlet property="slideImage" destination="0QT-6s-vmL" id="9qH-7W-bjw"/>
                                             <outlet property="slideLabel" destination="Sjv-fA-cK2" id="NSQ-1x-S7a"/>
                                             <outlet property="slideSearchBar" destination="jX4-5D-Vy6" id="PtK-Qx-B4D"/>
+                                            <outlet property="slideSegmentedControl" destination="3V8-Tc-0G6" id="zJF-m6-uF0"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -439,10 +538,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="fFf-5l-QHt">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Dictionary" id="Dhw-h6-rlM"/>
-                            <barButtonItem title="Settings" id="0hL-qo-3zx"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Dictionary" id="Dhw-h6-rlM">
+                            <connections>
+                                <action selector="dictionaryButtonPressed:" destination="LNS-QZ-Vr2" id="Zvk-aN-w1z"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="closeButton" destination="aEU-41-FfC" id="gS4-9M-a5R"/>
@@ -455,7 +555,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odK-mY-nBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="509" y="1163"/>
+            <point key="canvasLocation" x="508.59374999999994" y="1162.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gA2-oG-uAf">
@@ -476,9 +576,6 @@
             <point key="canvasLocation" x="-215.0390625" y="79.6875"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="5jo-Qr-AgC"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Cross.png" width="480" height="480"/>
         <image name="Left Arrow.png" width="480" height="480"/>

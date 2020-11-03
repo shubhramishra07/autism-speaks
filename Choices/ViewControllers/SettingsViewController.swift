@@ -22,6 +22,9 @@ class SettingsViewController: UIViewController {
     
     let settings:[String] = ["landscape", "portrait", "change screen color after the correct answer is picked"]
 
+    @IBAction func dictionaryButtonPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {

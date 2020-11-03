@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CE02C43F2503B78000E5F895 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02C43E2503B77F00E5F895 /* SettingsViewController.swift */; };
 		CE02C4412504783000E5F895 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02C4402504783000E5F895 /* SettingsTableViewCell.swift */; };
+		CE3BB2B4254499A400FCAE10 /* checked checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3BB2B2254499A400FCAE10 /* checked checkbox.png */; };
+		CE3BB2B5254499A400FCAE10 /* unchecked checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3BB2B3254499A400FCAE10 /* unchecked checkbox.png */; };
 		CE468F4A250DAB4B00ED23C8 /* YesNoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE468F49250DAB4B00ED23C8 /* YesNoViewController.swift */; };
 		CE55E99524DC817E0032BE80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55E99424DC817E0032BE80 /* AppDelegate.swift */; };
 		CE55E99724DC817E0032BE80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55E99624DC817E0032BE80 /* SceneDelegate.swift */; };
@@ -22,6 +24,8 @@
 		CE76977224E9D41A00CD5127 /* CollectionViewSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76977024E9D41A00CD5127 /* CollectionViewSlide.swift */; };
 		CE76977324E9D41A00CD5127 /* CollectionViewSlide.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE76977124E9D41A00CD5127 /* CollectionViewSlide.xib */; };
 		CE7CDD9E24EB691D00B63FCD /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CDD9D24EB691D00B63FCD /* SlideViewController.swift */; };
+		CEB7D88A254E662400EE0C58 /* NewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB7D889254E662400EE0C58 /* NewWordViewController.swift */; };
+		CEC33BDA254227B60015D826 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC33BD9254227B60015D826 /* HomeViewController.swift */; };
 		CEC7548624E625E900C0F228 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7548424E625E900C0F228 /* CollectionViewCell.swift */; };
 		CEC7548724E625E900C0F228 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC7548524E625E900C0F228 /* CollectionViewCell.xib */; };
 		CEEAFA872508884E009AD955 /* Left Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEAFA852508884E009AD955 /* Left Arrow.png */; };
@@ -49,6 +53,8 @@
 /* Begin PBXFileReference section */
 		CE02C43E2503B77F00E5F895 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CE02C4402504783000E5F895 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		CE3BB2B2254499A400FCAE10 /* checked checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checked checkbox.png"; sourceTree = "<group>"; };
+		CE3BB2B3254499A400FCAE10 /* unchecked checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked checkbox.png"; sourceTree = "<group>"; };
 		CE468F49250DAB4B00ED23C8 /* YesNoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesNoViewController.swift; sourceTree = "<group>"; };
 		CE55E99124DC817E0032BE80 /* Choices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Choices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE55E99424DC817E0032BE80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +74,8 @@
 		CE76977024E9D41A00CD5127 /* CollectionViewSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSlide.swift; sourceTree = "<group>"; };
 		CE76977124E9D41A00CD5127 /* CollectionViewSlide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewSlide.xib; sourceTree = "<group>"; };
 		CE7CDD9D24EB691D00B63FCD /* SlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
+		CEB7D889254E662400EE0C58 /* NewWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordViewController.swift; sourceTree = "<group>"; };
+		CEC33BD9254227B60015D826 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CEC7548424E625E900C0F228 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		CEC7548524E625E900C0F228 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		CEEAFA852508884E009AD955 /* Left Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Left Arrow.png"; sourceTree = "<group>"; };
@@ -100,6 +108,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE3BB2AD2544982600FCAE10 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CEEAFA8925088AF5009AD955 /* Cross.png */,
+				CEEAFA852508884E009AD955 /* Left Arrow.png */,
+				CEEAFA862508884E009AD955 /* Right Arrow.png */,
+				CE3BB2B2254499A400FCAE10 /* checked checkbox.png */,
+				CE3BB2B3254499A400FCAE10 /* unchecked checkbox.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		CE55E98824DC817E0032BE80 = {
 			isa = PBXGroup;
 			children = (
@@ -132,9 +152,7 @@
 				CE616C0224EF7375006C86DF /* XIB files */,
 				CE55E9C824DCEC120032BE80 /* wordlist.csv */,
 				CE55E9A224DC81800032BE80 /* Info.plist */,
-				CEEAFA852508884E009AD955 /* Left Arrow.png */,
-				CEEAFA862508884E009AD955 /* Right Arrow.png */,
-				CEEAFA8925088AF5009AD955 /* Cross.png */,
+				CE3BB2AD2544982600FCAE10 /* Images */,
 			);
 			path = Choices;
 			sourceTree = "<group>";
@@ -164,6 +182,8 @@
 				CE7CDD9D24EB691D00B63FCD /* SlideViewController.swift */,
 				CE02C43E2503B77F00E5F895 /* SettingsViewController.swift */,
 				CE468F49250DAB4B00ED23C8 /* YesNoViewController.swift */,
+				CEC33BD9254227B60015D826 /* HomeViewController.swift */,
+				CEB7D889254E662400EE0C58 /* NewWordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -300,6 +320,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE55E9A124DC81800032BE80 /* LaunchScreen.storyboard in Resources */,
+				CE3BB2B4254499A400FCAE10 /* checked checkbox.png in Resources */,
+				CE3BB2B5254499A400FCAE10 /* unchecked checkbox.png in Resources */,
 				CE55E99E24DC81800032BE80 /* Assets.xcassets in Resources */,
 				CE55E9C924DCEC120032BE80 /* wordlist.csv in Resources */,
 				CEEAFA882508884E009AD955 /* Right Arrow.png in Resources */,
@@ -333,10 +355,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE55E99924DC817E0032BE80 /* ViewController.swift in Sources */,
+				CEB7D88A254E662400EE0C58 /* NewWordViewController.swift in Sources */,
 				CE55E99524DC817E0032BE80 /* AppDelegate.swift in Sources */,
 				CE02C4412504783000E5F895 /* SettingsTableViewCell.swift in Sources */,
 				CE02C43F2503B78000E5F895 /* SettingsViewController.swift in Sources */,
 				CE7CDD9E24EB691D00B63FCD /* SlideViewController.swift in Sources */,
+				CEC33BDA254227B60015D826 /* HomeViewController.swift in Sources */,
 				CE76977224E9D41A00CD5127 /* CollectionViewSlide.swift in Sources */,
 				CEC7548624E625E900C0F228 /* CollectionViewCell.swift in Sources */,
 				CE55E99724DC817E0032BE80 /* SceneDelegate.swift in Sources */,

@@ -242,6 +242,7 @@ extension ViewController: UISearchBarDelegate, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func removeButtonPressed(_ sender: Any) {
+        print("got there")
         hideWordRemoving(bool: false)
         hideWordAdding(bool: true)
         searching = false

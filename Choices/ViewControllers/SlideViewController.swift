@@ -15,6 +15,7 @@ class SlideViewController: UIViewController {
         slideCollectionView.delegate = self
         slideCollectionView.dataSource = self
         slideCollectionView.dragDelegate = self
+        slideCollectionView.backgroundColor = .blue
         //slideCollectionView.dropDelegate = self - uncommenting this line crashes the app when a cell is dropped somewhere
         slideCollectionView.register(CollectionViewSlide.nib(), forCellWithReuseIdentifier: CollectionViewSlide.identifier)
         closeButton.isHidden = true
@@ -128,13 +129,13 @@ extension SlideViewController: UICollectionViewDelegate, UICollectionViewDataSou
             cell.slideDisplaySearch.isHidden = true
             cell.slideAddButton.isHidden = false
             cell.slideCloseButton.isHidden = true
-            cell.slideSegmentedControl.isHidden = true
+            //cell.slideSegmentedControl.isHidden = true
             return cell
         }
         
         else {
             cell.slideLabel.isHidden = false
-            cell.slideSegmentedControl.isHidden = false //commenting this line out might also help figure the error out
+            //cell.slideSegmentedControl.isHidden = false //commenting this line out might also help figure the error out
             cell.slideLabel.text = optionsList.list?[indexPath.item]
             cell.slideImage.isHidden = false
             if let w = optionsList.list?[indexPath.item] {
@@ -164,6 +165,7 @@ extension SlideViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //return CGSize(width: UIScreen.main.bounds.width/3.25, height: UIScreen.main.bounds.height/3.75)
         return CGSize(width: 320, height: 225)
     }
     
@@ -171,7 +173,7 @@ extension SlideViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return true
     }
     
-   
+    
 }
 
 extension SlideViewController: UICollectionViewDragDelegate {

@@ -14,6 +14,7 @@ class CollectionViewSlide: UICollectionViewCell {
         slideSearchBar.delegate = self
         slideDisplaySearch.delegate = self
         slideDisplaySearch.dataSource = self
+        self.contentView.backgroundColor = .red
         slideDisplaySearch.register(UITableViewCell.self, forCellReuseIdentifier: "tblcell")
     }
     
@@ -39,7 +40,7 @@ class CollectionViewSlide: UICollectionViewCell {
     
     @IBOutlet weak var slideCloseButton: UIButton!
     
-    @IBOutlet weak var slideSegmentedControl: UISegmentedControl!
+    //@IBOutlet weak var slideSegmentedControl: UISegmentedControl!
     
     var posChange:Int = 0
     
@@ -83,7 +84,7 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
         slideImage.isHidden = false
         slideSearchBar.isHidden = true
         slideDisplaySearch.isHidden = true
-        slideSegmentedControl.isHidden = false
+        //slideSegmentedControl.isHidden = false
         slideLabel.text = currentCell.textLabel?.text
         slideImage.image = userDictionary[(currentCell.textLabel?.text)!]
         slideCloseButton.isHidden = false
@@ -121,7 +122,7 @@ extension CollectionViewSlide: UISearchBarDelegate, UITableViewDelegate, UITable
         slideDisplaySearch.isHidden = false
         slideImage.isHidden = true
         slideLabel.isHidden = true
-        slideSegmentedControl.isHidden = true
+        //slideSegmentedControl.isHidden = true
         if let word = slideLabel.text {
             guard let ind = optionsList.options.firstIndex(of: word) else { return }
             if let r = self.delegate1?.row(from: self) {

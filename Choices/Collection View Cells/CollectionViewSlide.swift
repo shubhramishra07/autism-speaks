@@ -14,7 +14,6 @@ class CollectionViewSlide: UICollectionViewCell {
         slideSearchBar.delegate = self
         slideDisplaySearch.delegate = self
         slideDisplaySearch.dataSource = self
-        self.contentView.backgroundColor = .red
         slideDisplaySearch.register(UITableViewCell.self, forCellReuseIdentifier: "tblcell")
     }
     

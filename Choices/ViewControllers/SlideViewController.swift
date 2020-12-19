@@ -15,7 +15,6 @@ class SlideViewController: UIViewController {
         slideCollectionView.delegate = self
         slideCollectionView.dataSource = self
         slideCollectionView.dragDelegate = self
-        slideCollectionView.backgroundColor = .blue
         //slideCollectionView.dropDelegate = self - uncommenting this line crashes the app when a cell is dropped somewhere
         slideCollectionView.register(CollectionViewSlide.nib(), forCellWithReuseIdentifier: CollectionViewSlide.identifier)
         closeButton.isHidden = true
@@ -165,8 +164,9 @@ extension SlideViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //return CGSize(width: UIScreen.main.bounds.width/3.25, height: UIScreen.main.bounds.height/3.75)
-        return CGSize(width: 320, height: 225)
+        return CGSize(width: UIScreen.main.bounds.width/3.25, height: UIScreen.main.bounds.height/3.75)
+        
+        //return CGSize(width: 320, height: 225)
     }
     
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {

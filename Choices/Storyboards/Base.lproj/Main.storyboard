@@ -544,6 +544,10 @@
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0QT-6s-vmL">
                                                     <rect key="frame" x="50" y="26" width="220" height="134"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="134" id="DRn-HL-5Mc"/>
+                                                        <constraint firstAttribute="width" constant="220" id="hLp-a8-yB5"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sjv-fA-cK2">
                                                     <rect key="frame" x="50" y="175" width="220" height="40"/>
